@@ -19,7 +19,7 @@ public class Driver {
 				System.setProperty("webdriver.firefox.driver", Config.getProperty("firefox"));
 				driver = new FirefoxDriver();
 				break;
-			case "chrome":
+			case "chrome":					// for Mac os, please change to Config.getProperty("macChrome") 
 				System.setProperty("webdriver.chrome.driver", Config.getProperty("chrome"));
 				driver = new ChromeDriver();
 				break;
