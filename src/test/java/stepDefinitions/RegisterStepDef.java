@@ -1,6 +1,6 @@
 package stepDefinitions;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import java.awt.Robot;
 import java.awt.event.KeyEvent;
@@ -9,8 +9,8 @@ import java.util.Map;
 import org.apache.commons.lang.RandomStringUtils;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
+
 import com.toolsqa.pages.RegistrationPage;
 
 import cucumber.api.java.en.And;
@@ -23,8 +23,7 @@ import utilities.Driver;
 public class RegisterStepDef {
 
 	RegistrationPage reg = new RegistrationPage();
-	WebDriver driver = Driver.getInstance();
-
+	WebDriver driver = Driver.getInstance();  
 	WebElement country = reg.country;
 	WebElement month = reg.month;
 	WebElement day = reg.day;
@@ -33,7 +32,9 @@ public class RegisterStepDef {
 
 	@Given("^the user is on the signup page$")
 	public void the_user_is_on_the_signup_page() throws Throwable {
-		 
+          
+		// launch the browser and verify if the title of the page is displayed
+		
 		driver.get(Config.getProperty("url"));
 		if (reg.pageTitle.isDisplayed()) {
 			System.out.println("Page Title is: " + reg.pageTitle.getText());
@@ -49,15 +50,15 @@ public class RegisterStepDef {
 	}
 
 	@And("^the user chooses maritual status as married and hobby as cricket$")
-
 	public void the_user_chooses_maritual_status_as_married_and_hobby_as_cricket() throws Throwable {
 		reg.marriedStatus.click();
 		reg.hobbyCricket.click();
 	}
 
 	@And("^the user chooses country as United States$")
-
 	public void the_user_chooses_country_as_United_States() throws Throwable {
+		
+		// use Select class to be able to choose the country in drop down list
 		country.click();
 		Select sel = new Select(country);
 		sel.selectByVisibleText("United States");
@@ -65,7 +66,6 @@ public class RegisterStepDef {
 	}
 
 	@Then("^the user enters his date of birth$")
-
 	public void the_user_enters_his_date_of_birth() throws Throwable {
 
 		Select sel1 = new Select(month);
@@ -83,24 +83,25 @@ public class RegisterStepDef {
 	}
 
 	@And("^the user provides his phone number$")
-
 	public void the_user_provides_his_phone_number() throws Throwable {
 		reg.phoneNumber.sendKeys("2405600088");
 	}
 
 	@And("^the user enters username and email$")
-
 	public void the_user_enters_username_and_email() throws Throwable {
+		
+		// use RandomStringUtils for creating a random string whose length is the number of characters specified.
+		
 		reg.username.sendKeys(RandomStringUtils.randomAlphabetic(8));
 		reg.eMail.sendKeys(RandomStringUtils.randomAlphabetic(8)+"@gmail.com");
 	}
 
 	@And("^the user chooses profile picture$")
-
 	public void the_user_chooses_profile_picture() throws Throwable {
 		file.click();
 		String profPicture = System.getProperty("user.dir") + "/src/test/resources/test_data/goodJob.jpeg";
 		file.sendKeys(profPicture);
+		
 //		Thread.sleep(2000);
 //		Robot robot = new Robot();
 //		robot.keyPress(KeyEvent.VK_ESCAPE);
@@ -109,7 +110,6 @@ public class RegisterStepDef {
 	}
 
 	@Then("^the user describes about himself$")
-
 	public void the_user_describes_about_himself() throws Throwable {
 		reg.aboutYourSelf.sendKeys("Hi! My name is John Smith.");
 	}
@@ -123,7 +123,8 @@ public class RegisterStepDef {
 	
 	@Then("^the user enters following passwords and system displays password level message:$")
 	public void the_user_enters_following_passwords_and_system_displays_password_level_message(Map<String,String> passwords) throws Throwable {
-	   
+	  
+		// Test an invalid password, a weak password, a strong password and  verify proper messages for each of them
 		
 		enterPassword(passwords.get("Invalid"));
 		assertEquals("* Minimum 8 characters required", reg.invalidPassword.getText());
@@ -151,18 +152,20 @@ public class RegisterStepDef {
 	 @Then("^the user submits the application$")
 	 public void the_user_submits_the_application() throws Throwable {
 		 
+		 // submit the registration 
+		 
 		 reg.submitButton.click();
 		 Thread.sleep(2000);
 			Robot robot = new Robot();
 			robot.keyPress(KeyEvent.VK_ESCAPE);
-			
 			Thread.sleep(2000);
-
 		reg.submitButton.click();
 	 }
 	
 	 @And("^the user should see the approval message$")
 	 public void the_user_should_see_the_aproval_message() throws Throwable {
+		 
+		 // verify if the registration was successful
 		 reg.successMessageTest();
 
 	 }
