@@ -13,7 +13,7 @@ formatter.feature({
   ]
 });
 formatter.before({
-  "duration": 5100682762,
+  "duration": 4867905494,
   "status": "passed"
 });
 formatter.background({
@@ -32,7 +32,7 @@ formatter.match({
   "location": "RegisterStepDef.the_user_is_on_the_signup_page()"
 });
 formatter.result({
-  "duration": 2677228789,
+  "duration": 3345556563,
   "status": "passed"
 });
 formatter.scenario({
@@ -142,81 +142,58 @@ formatter.match({
   "location": "RegisterStepDef.the_user_enters_first_name_with_and_last_name_with(String,String)"
 });
 formatter.result({
-  "duration": 418975045,
+  "duration": 546522820,
   "status": "passed"
 });
 formatter.match({
   "location": "RegisterStepDef.the_user_chooses_maritual_status_as_married_and_hobby_as_cricket()"
 });
 formatter.result({
-  "duration": 290890344,
+  "duration": 519062329,
   "status": "passed"
 });
 formatter.match({
   "location": "RegisterStepDef.the_user_chooses_country_as_United_States()"
 });
 formatter.result({
-  "duration": 684984390,
+  "duration": 658949417,
   "status": "passed"
 });
 formatter.match({
   "location": "RegisterStepDef.the_user_enters_his_date_of_birth()"
 });
 formatter.result({
-  "duration": 1712861957,
+  "duration": 1613478015,
   "status": "passed"
 });
 formatter.match({
   "location": "RegisterStepDef.the_user_provides_his_phone_number()"
 });
 formatter.result({
-  "duration": 313606185,
+  "duration": 321220707,
   "status": "passed"
 });
 formatter.match({
   "location": "RegisterStepDef.the_user_enters_username_and_email()"
 });
 formatter.result({
-  "duration": 687847755,
+  "duration": 624125060,
   "status": "passed"
 });
 formatter.match({
   "location": "RegisterStepDef.the_user_chooses_profile_picture()"
 });
 formatter.result({
-  "duration": 366990704,
+  "duration": 364785482,
   "status": "passed"
 });
 formatter.match({
   "location": "RegisterStepDef.the_user_describes_about_himself()"
 });
 formatter.result({
-  "duration": 740330666,
+  "duration": 757479692,
   "status": "passed"
 });
 formatter.match({
   "location": "RegisterStepDef.the_user_enters_following_passwords_and_system_displays_password_level_message(String,String\u003e)"
-});
-formatter.result({
-  "duration": 7242439153,
-  "status": "passed"
-});
-formatter.match({
-  "location": "RegisterStepDef.the_user_submits_the_application()"
-});
-formatter.result({
-  "duration": 9958029902,
-  "status": "passed"
-});
-formatter.match({
-  "location": "RegisterStepDef.the_user_should_see_the_aproval_message()"
-});
-formatter.result({
-  "duration": 214871140,
-  "status": "passed"
-});
-formatter.after({
-  "duration": 157173,
-  "status": "passed"
-});
 });

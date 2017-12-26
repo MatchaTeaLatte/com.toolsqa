@@ -33,8 +33,8 @@ public class RegisterStepDef {
 
 	@Given("^the user is on the signup page$")
 	public void the_user_is_on_the_signup_page() throws Throwable {
-		  driver.get("http://demoqa.com/registration");
-		//driver.get(Config.getProperty("url"));
+		 
+		driver.get(Config.getProperty("url"));
 		if (reg.pageTitle.isDisplayed()) {
 			System.out.println("Page Title is: " + reg.pageTitle.getText());
 		} else {
